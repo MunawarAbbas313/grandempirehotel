@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   if (!post) return {};
   return pageMeta({
     path: `/blog/${post.slug}`,
-    title: post.title.length > 65 ? post.title.replace(/:.*$/, "").replace(/\s*\(.*\)$/, "") : post.title,
+    title: post.seoTitle ?? (post.title.length > 65 ? post.title.replace(/:.*$/, "").replace(/\s*\(.*\)$/, "") : post.title),
     description: post.description,
     keywords: post.keywords,
     image: post.image,
