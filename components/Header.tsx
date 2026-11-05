@@ -79,6 +79,9 @@ export default function Header() {
           <span className="tb-item tb-hide-md">
             <Icon name="clock" small /> Front desk open 24/7
           </span>
+          <span className="tb-item tb-hide-md tb-perk">
+            <Icon name="coffee" small /> Book direct: free breakfast · no booking fees
+          </span>
           <span className="tb-right">
             <span className="tb-item tb-hide-md">
               <span className="stars">★</span> {GOOGLE_RATING} on Google
@@ -208,7 +211,7 @@ export default function Header() {
         </nav>
         <div className="drawer-foot">
           <p className="drawer-price">
-            Rooms from <strong>{P.oneBedNight}</strong> / night · breakfast included
+            Short stay from <strong>{P.oneBedShort}</strong> · nights from <strong>{P.oneBedNight}</strong>
           </p>
           <Link className="btn btn-gold btn-block" href="/contact#book" onClick={close}>
             Book Your Stay
