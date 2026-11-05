@@ -2,10 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import QuickBook from "@/components/QuickBook";
-import { Cta, FaqSection, Features, Frame, PageHero, PriceCard, RelatedLinks, Rich, SectionHead, Tags } from "@/components/Sections";
+import { Cta, FaqSection, Features, Frame, PageHero, PriceCard, RelatedLinks, Rich, RoomFeatures, SectionHead, Tags } from "@/components/Sections";
 import { LANDINGS, getLanding } from "@/lib/landing";
 import { pageMeta } from "@/lib/seo";
-import { AMENITIES, GOOGLE_RATING, P, breadcrumbSchema, faqSchema, hotelSchema } from "@/lib/site";
+import { AMENITIES, GOOGLE_RATING, P, SHORT_HOURS, breadcrumbSchema, faqSchema, hotelSchema } from "@/lib/site";
 
 type Props = { params: Promise<{ landing: string }> };
 
@@ -35,7 +35,7 @@ export default async function LandingPage({ params }: Props) {
         eyebrow={l.eyebrow}
         title={l.h1}
         lead={l.lead}
-        badges={[<><span className="stars">★★★★★</span> {GOOGLE_RATING} on Google</>, "Free Breakfast", "24/7 Front Desk"]}
+        badges={[<><span className="stars">★★★★★</span> {GOOGLE_RATING} on Google</>, ...(l.badges ?? ["Free Breakfast", "24/7 Front Desk"])]}
       />
       <QuickBook />
 
@@ -56,6 +56,8 @@ export default async function LandingPage({ params }: Props) {
         </div>
       </section>
 
+      <RoomFeatures alt />
+
       <section className="section dark">
         <div className="container">
           <SectionHead eyebrow="Highlights" title={l.highlightsTitle} />
@@ -65,13 +67,24 @@ export default async function LandingPage({ params }: Props) {
 
       <section className="section">
         <div className="container">
-          <SectionHead eyebrow="Starting rates" title="Rooms & prices" />
+          <SectionHead eyebrow="Starting rates" title={l.pricesTitle ?? "Rooms & prices"} />
+          {l.prices ? (
+            <div className={l.prices.length === 3 ? "grid-3" : "grid-4"}>
+              {l.prices.map((p) => (
+                <PriceCard key={p.title} {...p} />
+              ))}
+            </div>
+          ) : (
           <div className="grid-4">
             <PriceCard label="Daily" title="1 Bed Room" amount={P.oneBedNight} per="per night" items={["Breakfast included", "Attached washroom", "WiFi & TV"]} cta="Book 1 bed room" />
             <PriceCard featured ribbon="Families" label="Daily" title="2 Bed Apartment" amount={P.twoBedNight} per="per night" items={["2 bedrooms + lounge", "Kitchen", "Breakfast included"]} cta="Book apartment" />
             <PriceCard label="Monthly" title="1 Bed Monthly" amount={P.oneBedMonth} per="per month" items={["Kitchen & shared lounge", "TV & internet", "Bills included"]} href="/monthly-rent-apartments-bahria-town-rawalpindi" cta="Monthly 1 bed details" />
             <PriceCard label="Monthly" title="2 Bed Monthly" amount={P.twoBedMonth} per="per month" items={["Private kitchen & lounge", "TV & internet", "Bills included"]} href="/monthly-rent-apartments-bahria-town-rawalpindi" cta="Monthly 2 bed details" />
           </div>
+          )}
+          <p className="note mt-2">
+            Short stay ({SHORT_HOURS}): 1 bed {P.oneBedShort} · 2 bed {P.twoBedShort} — <Link href="/hourly-rooms-bahria-town-rawalpindi">hourly rooms</Link>
+          </p>
         </div>
       </section>
 
