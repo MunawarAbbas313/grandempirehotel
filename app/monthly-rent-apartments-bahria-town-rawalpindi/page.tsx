@@ -10,7 +10,7 @@ const PATH = "/monthly-rent-apartments-bahria-town-rawalpindi";
 export const metadata = pageMeta({
   path: PATH,
   title: "Furnished Flats for Monthly Rent | Bahria Town Rawalpindi",
-  description: `Furnished 1-bed (${P.oneBedMonth}) & 2-bed apartments (${P.twoBedMonth}) for monthly rent in Bahria Town Phase 4 Rawalpindi. Kitchen, lounge, TV, internet & 24/7 power included.`,
+  description: `Furnished 1-bed (${P.oneBedMonth}) & 2-bed (${P.twoBedMonth}) flats for monthly rent in Bahria Town Phase 4 Rawalpindi. Kitchen, TV, internet & 24/7 power.`,
   keywords: [
     "furnished apartments for monthly rent in bahria town", "1 bedroom flat for rent in bahria town rawalpindi",
     "2 bedroom apartments for monthly rent in bahria town", "1 bedroom apartments for monthly rent in bahria town",
