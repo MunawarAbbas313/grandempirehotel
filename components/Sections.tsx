@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { POSTS } from "@/lib/blog";
-import { PHONE_DISPLAY, PHONE_TEL, STAYS, WHATSAPP_BOOK, type Faq, type Feature, type Img } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_TEL, ROOM_FEATURES, STAYS, WHATSAPP_BOOK, type Faq, type Feature, type Img } from "@/lib/site";
 import { Icon, WhatsAppIcon } from "./Icons";
 
 export type Crumb = { href?: string; label: string };
@@ -273,3 +273,46 @@ export function Rich({ text }: { text: string }) {
     </>
   );
 }
+
+// In-room features grouped by category (comfort, tech, bathroom, conveniences).
+export function RoomFeatures({
+  eyebrow = "In every room",
+  title = "Room Features Guests Love",
+  text = "Comfort, connectivity and convenience — everything you expect from a modern hotel room.",
+  alt,
+}: {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+  alt?: boolean;
+}) {
+  return (
+    <section className={`section${alt ? " alt" : ""}`} id="room-features">
+      <div className="container">
+        <SectionHead eyebrow={eyebrow} title={title} text={text} />
+        <div className="room-features">
+          {ROOM_FEATURES.map((g) => (
+            <div className="rf-group reveal" key={g.title}>
+              <h3 className="rf-title">
+                <span className="rf-ic"><Icon name={g.icon} /></span>
+                {g.title}
+              </h3>
+              <ul>
+                {g.items.map(([icon, t, d]) => (
+                  <li key={t}>
+                    <Icon name={icon} small />
+                    <span>
+                      <strong>{t}</strong>
+                      {d}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+

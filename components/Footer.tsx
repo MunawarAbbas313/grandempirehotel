@@ -2,7 +2,7 @@ import Link from "next/link";
 import { POSTS } from "@/lib/blog";
 import { LANDINGS } from "@/lib/landing";
 import {
-  ADDRESS, GOOGLE_RATING, MAP_EMBED, MAP_LINK, P, PAGES, PHONE_DISPLAY, PHONE_TEL, WHATSAPP, WHATSAPP_BOOK,
+  ADDRESS, GOOGLE_RATING, GOOGLE_REVIEWS, MAP_EMBED, MAP_LINK, P, PAGES, PHONE_DISPLAY, PHONE_TEL, WHATSAPP, WHATSAPP_BOOK,
 } from "@/lib/site";
 import { Brand } from "./Header";
 import { Icon, WhatsAppIcon } from "./Icons";
@@ -14,8 +14,8 @@ export default function Footer() {
         <div className="container">
           <div className="footer-cta">
             <div>
-              <p className="footer-cta-title">Stay in Bahria Town Phase 4 from {P.oneBedNight} / night</p>
-              <p>Breakfast included · 24/7 power &amp; water · Front desk open round the clock</p>
+              <p className="footer-cta-title">Bahria Town Phase 4 — short stay from {P.oneBedShort}, nights from {P.oneBedNight}</p>
+              <p>Breakfast included on night stays · AC &amp; heating · 24/7 power &amp; water · Parking · Front desk 24/7</p>
             </div>
             <div className="btn-row">
               <Link className="btn btn-gold" href="/contact#book">Book Now</Link>
@@ -33,7 +33,8 @@ export default function Footer() {
                 Rawalpindi. Daily, weekly and monthly stays with breakfast and in-room food delivery.
               </p>
               <p>
-                <span className="stars">★★★★★</span> Rated {GOOGLE_RATING} on Google
+                <span className="stars">★★★★★</span> Rated {GOOGLE_RATING} on Google ·{" "}
+                <a href={GOOGLE_REVIEWS} target="_blank" rel="noopener">Read &amp; write reviews</a>
               </p>
             </div>
             <div>

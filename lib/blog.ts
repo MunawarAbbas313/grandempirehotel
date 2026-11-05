@@ -1,4 +1,4 @@
-import { IMG, P, PHONE_DISPLAY, type Img } from "./site";
+import { IMG, P, PHONE_DISPLAY, SHORT_HOURS, type Img } from "./site";
 
 // Blog posts. Text supports [link text](/url) and **bold**.
 export type Block = { h2: string } | { h3: string } | { p: string } | { ul: string[] } | { cta: true };
@@ -7,7 +7,8 @@ export type Post = {
   slug: string;
   title: string;
   short: string; // short label for menus/footer
-  description: string; // Google meta description
+  description: string; // Google meta description (keep under 155 characters)
+  seoTitle?: string; // shorter <title> for Google if the headline is longer than ~60 characters
   keywords: string[];
   image: Img;
   date: string; // ISO
@@ -26,8 +27,9 @@ export const POSTS: Post[] = [
   {
     slug: "affordable-hotel-bahria-town-phase-4-rawalpindi",
     title: "How to Choose an Affordable Hotel in Bahria Town Phase 4, Rawalpindi (2026 Guide)",
+    seoTitle: "Affordable Hotel in Bahria Town Phase 4: How to Choose (2026)",
     short: "Choosing a hotel in Phase 4",
-    description: `A practical 2026 guide to finding an affordable, clean and safe hotel in Bahria Town Phase 4 Rawalpindi — what to check, fair prices and what should be included.`,
+    description: `A 2026 guide to finding an affordable, clean and safe hotel in Bahria Town Phase 4 Rawalpindi: what to check, fair prices and what should be included.`,
     keywords: ["affordable hotel in phase 4 bahria town", "best hotel in phase 4 bahria town", "budget hotel in phase 4 bahria town", "hotels in bahria town phase 4 rawalpindi", "luxury hotel in phase 4 bahria town"],
     image: IMG.bedLux,
     date: "2026-10-25",
@@ -64,11 +66,11 @@ export const POSTS: Post[] = [
       { p: "Whether you are in Rawalpindi for a wedding, a business meeting or a stop-over on your way to Islamabad, you often need a hotel for **just one day or one night**. Here is what to expect in Bahria Town Phase 4." },
       { h2: "One-day hotel prices in Bahria Town Phase 4" },
       { p: `At Grand Empire Hotel, a 1-bed room for one night starts from **${P.oneBedNight}**, and a fully furnished 2-bed apartment starts from **${P.twoBedNight}** per night. Both include a complimentary breakfast.` },
-      { ul: [`1 bed room (1–2 guests): from ${P.oneBedNight} per night`, `2 bed apartment (families / groups): from ${P.twoBedNight} per night`, "Weekly stays: ask for a discounted nightly rate"] },
+      { ul: [`1 bed room (1–2 guests): ${P.oneBedNight} per night`, `2 bed apartment (families / groups): ${P.twoBedNight} per night`, `Only need a few hours? Short stay of ${SHORT_HOURS}: ${P.oneBedShort} (1 bed) / ${P.twoBedShort} (2 bed) — see [hourly rooms](/hourly-rooms-bahria-town-rawalpindi)`, "Weekly stays: ask for a discounted nightly rate"] },
       { h2: "What's included in a one-day stay" },
       { ul: ["Complimentary breakfast and welcome tea", "Attached washroom with towels, shampoo and handwash", "24/7 electricity and water", "Free internet and TV", "24/7 front desk"] },
       { h2: "Hotel room vs apartment for one day" },
-      { p: `If you are a couple or travelling alone, a 1-bed room is the best value. If you are a family or group, a [2-bed apartment for rent per day](${D1}) gives you two bedrooms, a lounge and a kitchen — often cheaper than booking two separate hotel rooms.` },
+      { p: `If you are a couple or travelling alone, a 1-bed room is the best value. If you are a family or group, a [2-bed apartment for rent per day](${D1}) gives you two bedrooms, a lounge and a kitchen — often cheaper than booking two separate hotel rooms. Details on the [2 bed apartment per day](/2-bed-apartment-daily-rent-bahria-town-rawalpindi) page.` },
       { h2: "How to book a room for tonight" },
       { p: `Call or WhatsApp **${PHONE_DISPLAY}**. Share your date, number of guests and preferred room — the front desk confirms availability right away. Remember to bring your original CNIC for check-in.` },
       { cta: true },
@@ -93,7 +95,7 @@ export const POSTS: Post[] = [
       { h2: "Documents required for couples" },
       { p: "As per hotel policy and local regulations, **original CNIC is required for both guests** at check-in. Please keep your documents with you to make check-in smooth." },
       { h2: "Full night stay or short stay?" },
-      { p: "A full night stay includes breakfast the next morning. If you only need a few hours to rest between travel or events, ask the front desk about short stay availability." },
+      { p: `A full night stay includes breakfast the next morning. If you only need a few hours to rest between travel or events, book a [short stay of ${SHORT_HOURS}](/hourly-rooms-bahria-town-rawalpindi) for ${P.oneBedShort} (1 bed) or ${P.twoBedShort} (2 bed).` },
       { h2: "In-room dining for couples" },
       { p: `Order desi, continental or fast food directly to your room — perfect for a private dinner. See our [food & dining menu](${FOOD}).` },
       { cta: true },
@@ -153,6 +155,7 @@ export const POSTS: Post[] = [
   {
     slug: "stay-in-bahria-town-rawalpindi-when-visiting-islamabad",
     title: "Visiting Islamabad? Why Many Travellers Stay in Bahria Town Rawalpindi",
+    seoTitle: "Visiting Islamabad? Stay in Bahria Town Rawalpindi Instead",
     short: "Staying near Islamabad",
     description: "Visiting Islamabad on a budget? Why staying in Bahria Town Rawalpindi gives you better value, a secure gated community and easy access to the capital.",
     keywords: ["hotels in islamabad cheap rates", "hotels in islamabad cheap rates for family", "hotel in rawalpindi", "hotels in bahria town islamabad", "best hotels in islamabad"],
