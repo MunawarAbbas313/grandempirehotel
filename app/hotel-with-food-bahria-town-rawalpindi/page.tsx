@@ -10,7 +10,7 @@ export const metadata = pageMeta({
   path: PATH,
   title: "Hotel with Food & Room Delivery | Bahria Town Rawalpindi",
   description:
-    "Hotel & apartments with food delivered to your room in Bahria Town Phase 4 Rawalpindi. Free breakfast, welcome tea, desi, fast food & continental lunch and dinner on request.",
+    "Hotel with food in Bahria Town Phase 4 Rawalpindi: free breakfast, welcome tea, desi, fast food & continental meals delivered to your room on request.",
   keywords: [
     "hotel with food rawalpindi", "hotel with food bahria town", "hotel with food delivery to rooms",
     "apartments with food delivery bahria town", "hotel with free breakfast rawalpindi", "hotel with breakfast bahria town phase 4",
