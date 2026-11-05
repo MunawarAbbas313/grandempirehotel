@@ -41,11 +41,11 @@ the blog page, in the footer, and in `sitemap.xml`.
 ## Publish
 
 1. Push this folder to GitHub and import it at https://vercel.com (free).
-2. In Vercel → Settings → Domains, keep `grandempirehotel.com` (no www) as the **primary** domain and set
-   `www.grandempirehotel.com` to **redirect (308/301) to grandempirehotel.com**. The site's canonical URLs,
+2. In your host's domain settings (Netlify → Domain management), keep `grandempirehotel.com` (no www) as the **primary** domain and set
+   `www.grandempirehotel.com` as a domain alias that **redirects (301) to grandempirehotel.com**. The site's canonical URLs,
    sitemap and schema all use the non-www address (`SITE_URL` in `lib/site.ts`) — keep the two in sync.
 3. In Google Search Console: verify the site (put the code in a `GOOGLE_SITE_VERIFICATION`
-   environment variable on Vercel), then submit `https://grandempirehotel.com/sitemap.xml`.
+   environment variable on Netlify), then submit `https://grandempirehotel.com/sitemap.xml`.
 4. Add the website link to your Google Business Profile.
 
 `static-html-version/` is the earlier plain-HTML version, kept as a backup.
