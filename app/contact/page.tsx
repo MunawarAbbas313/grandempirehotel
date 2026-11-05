@@ -11,7 +11,7 @@ export const metadata = pageMeta({
   path: PATH,
   title: "Contact & Booking | Grand Empire Hotel Bahria Town",
   description:
-    "Book Grand Empire Hotel & Apartments, Plot 23, Street 4, Civic Center, Bahria Town Phase 4, Rawalpindi. Call or WhatsApp 0319 9193124 — front desk open 24/7. Map & directions.",
+    "Book Grand Empire Hotel, Plot 23, Street 4, Civic Center, Bahria Town Phase 4 Rawalpindi. Call or WhatsApp 0319 9193124, open 24/7. Map & directions.",
   keywords: [
     "grand empire hotel contact", "grand empire hotel bahria town", "hotel booking bahria town rawalpindi",
     "hotel in bahria civic center", "hotel phone number bahria town phase 4", "hotel near me bahria town rawalpindi",
