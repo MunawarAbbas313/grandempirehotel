@@ -4,41 +4,43 @@ import Gallery from "@/components/Gallery";
 import { Icon } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
 import QuickBook from "@/components/QuickBook";
-import { CheckList, Cta, FaqSection, Features, Frame, PageHero, SectionHead, Tags } from "@/components/Sections";
+import { CheckList, Cta, FaqSection, Features, Frame, PageHero, RoomFeatures, SectionHead, Tags } from "@/components/Sections";
 import { POSTS } from "@/lib/blog";
 import { LANDINGS } from "@/lib/landing";
 import { pageMeta } from "@/lib/seo";
 import {
-  AMENITIES, AREAS, GOOGLE_RATING, IMG, ONE_BED_ROOMS, P, PHONE_DISPLAY, faqSchema, hotelSchema, websiteSchema,
+  AMENITIES, AREAS, GOOGLE_RATING, IMG, ONE_BED_ROOMS, P, PHONE_DISPLAY, SHORT_HOURS, faqSchema, hotelSchema, websiteSchema,
   type Faq, type Img,
 } from "@/lib/site";
 
 export const metadata = pageMeta({
   path: "/",
   title: "Hotel in Bahria Town Phase 4 Rawalpindi | Grand Empire Hotel",
-  description: `Affordable luxury hotel & apartments in Civic Center, Bahria Town Phase 4 Rawalpindi. Rooms from ${P.oneBedNight}/night, free breakfast, 24/7 power. Call ${PHONE_DISPLAY}.`,
+  description: `Hotel & apartments in Bahria Town Phase 4 Rawalpindi. Hourly stay from ${P.oneBedShort}, full night ${P.oneBedNight} with breakfast, AC, parking. Call ${PHONE_DISPLAY}.`,
   keywords: [
     "hotel in bahria town rawalpindi", "hotels in bahria town phase 4 rawalpindi", "best hotel in phase 4 bahria town",
     "luxury hotel in phase 4 bahria town", "affordable hotel in phase 4 bahria town", "budget hotel in phase 4 bahria town",
     "5 star hotel in phase 4 bahria town", "hotel in rawalpindi", "hotels in islamabad affordable rates",
     "hotels in bahria town islamabad", "guest house in bahria town", "apartments for rent bahria town",
     "hotel with food rawalpindi", "rooms for couples bahria town", "grand empire hotel",
+    "hourly rooms bahria town", "short stay hotel rawalpindi", "hotel with parking bahria town",
   ],
   image: IMG.bedRed,
 });
 
 const faqs: Faq[] = [
-  ["What are the room rates at Grand Empire Hotel Bahria Town?", `1-bed rooms start from ${P.oneBedNight} per night and 2-bed apartments start from ${P.twoBedNight} per night. Monthly stays start from ${P.oneBedMonth} (1 bed) and ${P.twoBedMonth} (2 bed). Breakfast is complimentary on daily stays.`],
+  ["What are the room rates at Grand Empire Hotel Bahria Town?", `Short stays (${SHORT_HOURS}) cost ${P.oneBedShort} for a 1-bed room and ${P.twoBedShort} for a 2-bed apartment. A full night is ${P.oneBedNight} (1 bed) or ${P.twoBedNight} (2 bed). Monthly stays start from ${P.oneBedMonth} (1 bed) and ${P.twoBedMonth} (2 bed). Breakfast is complimentary on daily stays.`],
   ["Where is Grand Empire Hotel located?", "We are at Plot No. 23, Street 4, Civic Center, Bahria Town Phase 4, Rawalpindi — in the heart of Bahria Town with restaurants, banks and shopping right outside, and easy access to Islamabad."],
-  ["Do you offer rooms for one day or one night?", `Yes. You can book a room for a single day or night, a weekend, or longer. Call or WhatsApp ${PHONE_DISPLAY} to check availability.`],
+  ["Do you offer hourly rooms or rooms for one night?", `Yes. You can book a short stay of ${SHORT_HOURS}, a single night, a weekend, a week or longer. Call or WhatsApp ${PHONE_DISPLAY} to check availability.`],
   ["Is food available at the hotel?", "Yes. Complimentary breakfast and welcome tea are included, and lunch and dinner (fast food, continental and desi) can be delivered to your room on request."],
   ["Is the hotel suitable for families and couples?", "Yes. Our private, clean rooms and 2-bed apartments are ideal for families, married couples, honeymooners and business travellers. A valid CNIC is required at check-in."],
   ["How do I book a room quickly?", `Use the quick booking form on this page, or call / WhatsApp ${PHONE_DISPLAY}. Our 24/7 front desk replies instantly and same-day bookings are welcome.`],
 ];
 
 const stays: { img: Img; alt: string; tag: string; title: string; text: string; price: string; per: string; href: string; link: string }[] = [
+  { img: IMG.bedWash, alt: "Hourly room for short stay in Bahria Town Rawalpindi", tag: "Hourly", title: "Hourly Rooms", text: `Short stay of ${SHORT_HOURS} — rest, freshen up or work. 2 bed ${P.twoBedShort}.`, price: P.oneBedShort, per: "/ 1–3 hrs", href: "/hourly-rooms-bahria-town-rawalpindi", link: "Hourly room details" },
   { img: IMG.bedDeluxe, alt: "1 bed room for daily rent in Bahria Town Rawalpindi", tag: "Daily", title: "Rooms for Daily Rent", text: "One day, one night or a weekend — clean private rooms with breakfast.", price: P.oneBedNight, per: "/ night", href: "/daily-rent-rooms-bahria-town-rawalpindi", link: "Daily stay details" },
-  { img: IMG.living, alt: "Furnished 2 bed apartment for rent in Bahria Town Phase 4", tag: "2 Bed", title: "2 Bed Apartments", text: "Full lounge, kitchen, TV and two bedrooms — perfect for families.", price: P.twoBedNight, per: "/ night", href: "/rooms-and-rates", link: "See 2 bed apartment" },
+  { img: IMG.living, alt: "Furnished 2 bed apartment for rent in Bahria Town Phase 4", tag: "2 Bed", title: "2 Bed Apartments", text: "Full lounge, kitchen, TV and two bedrooms — perfect for families.", price: P.twoBedNight, per: "/ night", href: "/2-bed-apartment-daily-rent-bahria-town-rawalpindi", link: "See 2 bed apartment" },
   { img: IMG.bedRed, alt: "Honeymoon suite for couples in Bahria Town Rawalpindi", tag: "Couples", title: "Couples & Honeymoon", text: "Private, romantic rooms for newlyweds and married couples.", price: P.oneBedNight, per: "/ night", href: "/couple-rooms-bahria-town-rawalpindi", link: "Couples & honeymoon stay" },
   { img: IMG.lounge, alt: "Furnished flat for monthly rent in Bahria Town Rawalpindi", tag: "Monthly", title: "Monthly Rooms & Flats", text: "Furnished with kitchen, lounge, TV & internet. All bills included.", price: P.oneBedMonth, per: "/ month", href: "/monthly-rent-apartments-bahria-town-rawalpindi", link: "Monthly rent details" },
 ];
@@ -52,8 +54,8 @@ export default function Home() {
         img={IMG.bedRed}
         eyebrow="Bahria Town Phase 4 · Civic Center · Rawalpindi"
         title={<>Affordable Luxury Hotel &amp; Apartments in <span>Bahria Town Rawalpindi</span></>}
-        lead="Elegant rooms and fully furnished 2-bed apartments for daily, weekly and monthly stay — with complimentary breakfast, 24/7 electricity & water and fresh food delivered to your room."
-        badges={[<><span className="stars">★★★★★</span> {GOOGLE_RATING} on Google</>, "Free Breakfast", "24/7 Front Desk", `Rooms from ${P.oneBedNight}`]}
+        lead="Elegant rooms and fully furnished 2-bed apartments for hourly, nightly, weekly and monthly stay — with complimentary breakfast, 24/7 electricity & water and fresh food delivered to your room."
+        badges={[<><span className="stars">★★★★★</span> {GOOGLE_RATING} on Google</>, "Free Breakfast", "24/7 Front Desk", `Hourly from ${P.oneBedShort}`]}
       />
       <QuickBook />
 
@@ -61,8 +63,10 @@ export default function Home() {
         <div className="container price-strip">
           <div className="grid">
             {[
-              ["1 Bed Room · Daily", P.oneBedNight, "/ night"],
-              ["2 Bed Apartment · Daily", P.twoBedNight, "/ night"],
+              ["1 Bed · Short stay 1–3 hrs", P.oneBedShort, "/ stay"],
+              ["2 Bed · Short stay 1–3 hrs", P.twoBedShort, "/ stay"],
+              ["1 Bed Room · Full night", P.oneBedNight, "/ night"],
+              ["2 Bed Apartment · Full night", P.twoBedNight, "/ night"],
               ["1 Bed · Monthly", P.oneBedMonth, "/ month"],
               ["2 Bed · Monthly", P.twoBedMonth, "/ month"],
             ].map(([l, p, per]) => (
@@ -108,8 +112,8 @@ export default function Home() {
 
       <section className="section alt">
         <div className="container">
-          <SectionHead eyebrow="Stay Your Way" title="Rooms & Apartments for Every Stay" text="Daily, short stay, honeymoon or monthly — choose the stay that fits you." />
-          <div className="grid-4">
+          <SectionHead eyebrow="Stay Your Way" title="Rooms & Apartments for Every Stay" text="Hourly, nightly, honeymoon or monthly — choose the stay that fits you." />
+          <div className="grid-4 stays-grid">
             {stays.map((s) => (
               <article className="card reveal" key={s.title}>
                 <div className="card-img">
@@ -134,6 +138,8 @@ export default function Home() {
           <Features items={AMENITIES} />
         </div>
       </section>
+
+      <RoomFeatures />
 
       <section className="section">
         <div className="container grid-2">
@@ -176,9 +182,9 @@ export default function Home() {
           <Features
             items={[
               ["pin", "Prime Civic Center Location", "Right in Bahria Town Phase 4 Civic Center — food, banks and shopping at your doorstep, with quick access to Islamabad."],
-              ["tag", "Affordable Luxury", `Premium rooms at budget-friendly rates: from ${P.oneBedNight} a night with breakfast included.`],
-              ["lock", "Private & Secure", "CCTV-monitored building, 24/7 reception and private rooms for families and couples."],
-              ["calendar", "Easy, Flexible Booking", "Book in seconds on WhatsApp — for one day, a weekend, a week or a month."],
+              ["tag", "Affordable Luxury", `Short stays from ${P.oneBedShort}, full nights from ${P.oneBedNight} with breakfast included.`],
+              ["lock", "Private & Secure", "CCTV-monitored building, parking, 24/7 reception and private rooms for families and couples."],
+              ["calendar", "Easy, Flexible Booking", "Book in seconds on WhatsApp — for a few hours, a night, a week or a month."],
             ]}
           />
         </div>
