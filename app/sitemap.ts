@@ -17,7 +17,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
     images: [SITE_URL + p.image.src],
   }));
-  const landings: MetadataRoute.Sitemap = LANDINGS.map((l) => ({
+  // Skip landing pages already listed as main pages (e.g. Hourly / Weekly stays) — no duplicate URLs
+  const mainHrefs = new Set(PAGES.map((n) => n.href));
+  const landings: MetadataRoute.Sitemap = LANDINGS.filter((l) => !mainHrefs.has(`/${l.slug}`)).map((l) => ({
     url: `${SITE_URL}/${l.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
