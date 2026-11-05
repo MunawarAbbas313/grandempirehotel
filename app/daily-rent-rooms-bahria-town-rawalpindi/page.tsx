@@ -10,7 +10,7 @@ const PATH = "/daily-rent-rooms-bahria-town-rawalpindi";
 export const metadata = pageMeta({
   path: PATH,
   title: `Rooms for Daily Rent in Bahria Town Rawalpindi | From ${P.oneBedNight}`,
-  description: `Affordable rooms & furnished apartments for daily rent in Bahria Town Phase 4 Rawalpindi. One day / one night stay from ${P.oneBedNight} with free breakfast. Book on ${PHONE_DISPLAY}.`,
+  description: `Rooms & apartments for daily rent in Bahria Town Phase 4 Rawalpindi: one night ${P.oneBedNight} with breakfast, or 1–3 hours from ${P.oneBedShort}. Book 24/7.`,
   keywords: [
     "rooms for daily rent bahria town rawalpindi", "hotel in phase 4 bahria town for one day", "cheap hotel in phase 4 bahria town for one day",
     "affordable hotel in phase 4 bahria town for one day", "budget hotel in phase 4 bahria town for one day",
