@@ -3,14 +3,14 @@ import JsonLd from "@/components/JsonLd";
 import QuickBook from "@/components/QuickBook";
 import { CheckList, Cta, FaqSection, Features, Frame, PageHero, RelatedLinks, SectionHead, Tags } from "@/components/Sections";
 import { pageMeta } from "@/lib/seo";
-import { IMG, P, PHONE_DISPLAY, breadcrumbSchema, faqSchema, hotelSchema, type Faq } from "@/lib/site";
+import { IMG, P, PHONE_DISPLAY, breadcrumbSchema, faqSchema, hotelSchema, type Faq, SHORT_HOURS } from "@/lib/site";
 
 const PATH = "/couple-rooms-bahria-town-rawalpindi";
 
 export const metadata = pageMeta({
   path: PATH,
   title: "Rooms for Couples & Honeymoon | Bahria Town Rawalpindi",
-  description: `Private, affordable rooms for couples, newlyweds & honeymoon in Bahria Town Phase 4 Rawalpindi. Full night or short stay, breakfast included, from ${P.oneBedNight}. Call ${PHONE_DISPLAY}.`,
+  description: `Private rooms for couples & honeymoon in Bahria Town Phase 4 Rawalpindi. Short stay (1–3 hrs) ${P.oneBedShort}, full night ${P.oneBedNight} with breakfast.`,
   keywords: [
     "rooms for couples in bahria town rawalpindi", "private rooms for couples in bahria town rawalpindi",
     "cheap rooms for couples in bahria town rawalpindi", "affordable rooms for couples rawalpindi",
@@ -25,7 +25,7 @@ const faqs: Faq[] = [
   ["Do you have private rooms for couples in Bahria Town Rawalpindi?", `Yes. We offer private, clean and secure rooms for married couples and families, from ${P.oneBedNight} per night with breakfast.`],
   ["Do you offer honeymoon rooms?", "Yes. Our honeymoon-ready rooms feature king-size tufted beds, warm lighting and attached washrooms. Ask us about room decoration and in-room dinner on request."],
   ["What documents are required for couples?", "Original CNIC is required for both guests at check-in, as per hotel policy and local regulations."],
-  ["Can we book a short stay instead of a full night?", `Short stay options may be available depending on occupancy. Call or WhatsApp ${PHONE_DISPLAY} to check.`],
+  ["Can we book a short stay instead of a full night?", `Yes. A short stay of ${SHORT_HOURS} costs ${P.oneBedShort} (1 bed room) or ${P.twoBedShort} (2 bed apartment). Call or WhatsApp ${PHONE_DISPLAY} to book.`],
   ["Is the hotel safe and private?", "Yes. The building has 24/7 reception, CCTV in common areas, and every room is private with its own attached washroom."],
 ];
 
@@ -70,7 +70,7 @@ export default function Couples() {
             items={[
               ["heart", "Honeymoon Stay", "Our most elegant room for newlyweds, with breakfast in bed and dinner on request."],
               ["bed", "Full Night Stay", `Check in, relax and wake up to complimentary breakfast. From ${P.oneBedNight}.`],
-              ["clock", "Short Stay", "Need just a few hours to rest? Ask our front desk about short stay availability."],
+              ["clock", "Short Stay", `Need just a few hours? ${SHORT_HOURS} from ${P.oneBedShort}.`],
               ["food", "Romantic Dinner In-Room", "Desi, continental or fast food served hot to your room on request."],
             ]}
           />
