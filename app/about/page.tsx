@@ -2,10 +2,10 @@ import Link from "next/link";
 import Gallery from "@/components/Gallery";
 import { Icon } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
-import { Cta, FaqSection, Features, Frame, PageHero, RelatedLinks, SectionHead } from "@/components/Sections";
+import { Cta, FaqSection, Features, Frame, PageHero, RelatedLinks, RoomFeatures, SectionHead } from "@/components/Sections";
 import { pageMeta } from "@/lib/seo";
 import {
-  ADDRESS, AMENITIES, AREAS, CHECK_IN, CHECK_OUT, GOOGLE_RATING, IMG, ONE_BED_ROOMS, P, PHONE_DISPLAY, PHONE_TEL, WHATSAPP,
+  ADDRESS, AMENITIES, AREAS, CHECK_IN, CHECK_OUT, GOOGLE_RATING, IMG, ONE_BED_ROOMS, P, PHONE_DISPLAY, PHONE_TEL, SHORT_HOURS, WHATSAPP,
   breadcrumbSchema, faqSchema, hotelSchema, type Faq,
 } from "@/lib/site";
 
@@ -13,8 +13,8 @@ const PATH = "/about";
 
 export const metadata = pageMeta({
   path: PATH,
-  title: "Hotel Details, Facilities & Policies | Grand Empire Hotel Bahria Town",
-  description: `Everything about Grand Empire Hotel & Apartments, Bahria Town Phase 4 Rawalpindi: ${ONE_BED_ROOMS} rooms, 2-bed apartments, facilities, check-in ${CHECK_IN}, check-out ${CHECK_OUT}, policies & location.`,
+  title: "Hotel Details, Facilities & Policies | Grand Empire Bahria Town",
+  description: `Grand Empire Hotel, Bahria Town Phase 4: ${ONE_BED_ROOMS} rooms + 2-bed apartments, AC, parking, room service. Check-in ${CHECK_IN}, check-out ${CHECK_OUT}. Policies & map.`,
   keywords: [
     "grand empire hotel bahria town", "hotel details bahria town rawalpindi", "hotel facilities phase 4 bahria town",
     "hotel check in time rawalpindi", "hotel policies bahria town", "vip service apartments bahria town",
@@ -34,14 +34,16 @@ const details: [string, string][] = [
   ["Property type", "Boutique hotel & VIP service apartments"],
   ["Address", ADDRESS],
   ["Rooms", `${ONE_BED_ROOMS} one-bed rooms + 2-bed apartments`],
-  ["Daily rates", `1 bed from ${P.oneBedNight} · 2 bed from ${P.twoBedNight} per night`],
+  ["Short stay", `${SHORT_HOURS}: 1 bed ${P.oneBedShort} · 2 bed ${P.twoBedShort}`],
+  ["Night rates", `1 bed ${P.oneBedNight} · 2 bed ${P.twoBedNight} per night`],
   ["Monthly rates", `1 bed from ${P.oneBedMonth} · 2 bed from ${P.twoBedMonth} per month`],
   ["Check-in / Check-out", `From ${CHECK_IN} / by ${CHECK_OUT}`],
   ["Front desk", "Open 24/7 — reception & concierge"],
   ["Breakfast", "Complimentary with daily stays, plus welcome tea"],
   ["Food", "Desi, fast food & continental — delivered to your room on request"],
   ["Utilities", "24/7 electricity backup, 24/7 hot & cold water, free internet"],
-  ["In every room", "Attached washroom, towels, shampoo, handwash, TV, air conditioning"],
+  ["In every room", "AC & heater, attached bathroom with hot water, premium bedding, Smart TV, WiFi, mini-fridge, kettle, safe, desk, iron"],
+  ["Parking & security", "Parking available · CCTV · 24/7 front desk · gated community"],
   ["ID required", "Original CNIC (or passport) for all adult guests"],
   ["Booking", `Call or WhatsApp ${PHONE_DISPLAY}`],
 ];
@@ -114,6 +116,8 @@ export default function About() {
           <Features items={AMENITIES} />
         </div>
       </section>
+
+      <RoomFeatures alt />
 
       <section className="section">
         <div className="container grid-2">
